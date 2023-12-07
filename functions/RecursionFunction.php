@@ -8,5 +8,15 @@
             return $n * factorial($n - 1);
         }
     }
-    echo factorial(10);
+    echo factorial(5);
+
+
+
+    function loop($n){
+        if($n < 10){
+           echo $n;
+           loop($n + 1);
+        }
+    }
+    loop(1);
 ?>
