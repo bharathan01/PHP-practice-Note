@@ -1,0 +1,11 @@
+
+In PHP, include and require are used to include and evaluate the contents of a file within another file. 
+They are useful for modularizing code and reusing common components across multiple pages.
+
+include:
+If the file to be included is not found, include generates a warning but continues to execute the script.
+In this case, a warning is generated, but the script continues to execute.
+
+require:
+If the file to be included is not found, require generates a fatal error and stops the script execution.
+In this case, a fatal error occurs, and the script stops executing.
