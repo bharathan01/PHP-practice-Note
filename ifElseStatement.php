@@ -33,7 +33,6 @@ $activity = ($weather == "sunny") ? "Go outside" : "Stay indoors";
 
 echo $activity;
 
-
 ?>
 
 
