@@ -23,6 +23,7 @@
 </head>
 <body>
   <!-- using $GET vaiable to send the data -->
+  <!-- Represents data sent to the script via URL parameters (HTTP GET method). -->
   <form action="displayData.php" method="GET">
     <label for="name">Name:</label>
     <br>
