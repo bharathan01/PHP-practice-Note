@@ -1,12 +1,11 @@
 <?php
-    session_start();
-    $error = isset($_SESSION['error']) ? $_SESSION['error']:'';
-//    unset($_SESSION['error']);
-
+session_start();
+    $error = isset($_SESSION['error']) ? $_SESSION['error']: '';
+    if(isset($_SESSION['error'])){
+        echo "hallo error";
+    }
+   unset($_SESSION['error']);
 ?>
-
-
-
 
 
 <!DOCTYPE html>

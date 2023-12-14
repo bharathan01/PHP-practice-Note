@@ -1,6 +1,12 @@
 <!-- Common header included -->
-<?php include 'header.php'; ?>
+<?php require 'connectDb.php'?>
 
+<?php 
+  $selectAll = "SELECT * FROM STUDENT";
+  $allData = mysqli_query($connect,$selectAll);
+?>
+
+<?php include 'header.php'; ?>
 
 <!-- Main module content goes here -->
 <div class="w-100 bg-light d-flex align-items-center" style="height:612px;">
@@ -18,17 +24,25 @@
             </tr>
         </thead>
         <tbody>
+        <?php if(mysqli_num_rows($allData) > 0){?>
+            <?php while($row = mysqli_fetch_assoc($allData)){ ?>
             <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>@Otto</td>
-                <td>BCA</td>
-                <td><img src="https://img.freepik.com/premium-photo/young-girl-is-typing-computer-with-lit-up-screen-using-artificial-intelligence_131911-1.jpg" style="width: 50px;height:50px;"></td>
+                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $row['name']?></td>
+                <td><?php echo $row['email']?></td>
+                <td><?php echo $row['course']?></td>
+                <td><img src="<?php echo $row['profile_pic'] ?>" style="width: 50px;height:50px;"></td>
                 <td>
-                    <button type="Submit" class="btn btn-success">Update</button>
+                    <a href="addStudent.php?id=<?php echo $row['id'];?>"><button type="Submit" class="btn btn-success">Update</button></a>
                     <button type="Submit" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
+            <?php }?>
+            <?php } else { ?>
+                <tr aria-rowspan="4">
+                  <td class="opacity-50">No data found.</td>
+                </tr>
+            <?php }?>
         </tbody>
       </table> 
     </div>
