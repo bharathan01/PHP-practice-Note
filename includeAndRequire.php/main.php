@@ -1,6 +1,7 @@
 <!-- Common header included -->
 <?php include 'header.php'; ?>
 
+
 <!-- Main module content goes here -->
 <div class="w-100 bg-primary" style="height:624px;">
      <div class="container text-light text-center">
@@ -15,4 +16,5 @@
     </div>
 </div>
 
-<?php require 'footer.php'; ?>
+<?php require 'footer.php'; 
+?>
