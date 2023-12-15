@@ -6,8 +6,6 @@ session_start();
     }
    unset($_SESSION['error']);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
