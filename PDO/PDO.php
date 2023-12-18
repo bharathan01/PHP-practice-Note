@@ -17,10 +17,10 @@ try{
     //if any error throw to the catch block
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    echo "Connected to MySQL successfully\n";
+    echo "Connected to MySQL successfully\n","<br>";
 
 }catch(PDOException $e){
-    echo "Connection failed: " . $e->getMessage();
+    echo "Connection failed: " . $e->getMessage(), "<br>";
     exit;
 }
 
