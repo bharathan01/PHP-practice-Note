@@ -9,7 +9,7 @@ try{
     $value1 = 'Male';
     $steatment  = $pdo->prepare($query);
     $steatment->bindParam(":value1", $value1);
-    $result = $steatment->execute();
+    $steatment->execute();
     while($row = $steatment->fetch(PDO::FETCH_ASSOC)){
         echo "<pre>";
         print_r($row);
