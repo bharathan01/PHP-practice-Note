@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<?php 
+
+  if($_SERVER["REQUEST_METHOD"] == 'POST'){
+    if(isset($_POST['submit'])){
+      $name = $_REQUEST['name'];
+      $email = $_REQUEST['email'];
+      $password = $_REQUEST['password'];
+      $terms = $_REQUEST['terms'];
+      echo $name, $password, $email,$terms;
+    }
+     
+  }
+
+?>
+
+
+
 <style>
   form{
     width: 300px;
@@ -15,7 +32,7 @@
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 20px;
+    margin: 10px 0 10px 0px;
   }
   input[type='button']{
     width: 100px;
@@ -38,12 +55,12 @@
         height: 400px;width: 400px;  
         display:flex; align-items: center;
         justify-content: center;">
-            <form action="">
+            <form method="POST" action="<?php  echo $_SERVER['PHP_SELF'] ?>" >
                 <label for="Name">Name</label>
                 <input name="name" type="text" id="name" placeholder="Name"/>
-                <label for="Email">Name</label>
+                <label for="Email">Email</label>
                 <input name="email" type="email" id="Email" placeholder="Email"/>
-                <label for="password">Name</label>
+                <label for="password">password</label>
                 <input name="password" id="password" type="password" placeholder="password"/>
                 <label for="terms">Privacy&policy</label>
                 <input name="terms" type="checkbox" id="terms"/><br>
