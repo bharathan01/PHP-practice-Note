@@ -10,13 +10,15 @@
   form{
     width: 300px;
     height: 300px;
+    padding-top: 20px;
   }
   input[type='text'],[type='email'],[type='password']{
     width: 250px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
-    margin: 10px 0 10px 0px;
+    margin: 10px 0 10px 0;
+    
   }
   input[type='submit']{
     width: 100px;
@@ -27,6 +29,10 @@
     border: none;
     border-radius: 10px;
   }
+  p{
+    margin: 0;
+    padding: 0;
+  }
 
 </style>
 
@@ -35,7 +41,6 @@
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
   $error = [];
-        if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'])) {
           if(empty($_POST['name'])){
             $error['nameEty'] = "Name is required";
           }
@@ -51,23 +56,20 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
           if(empty($_POST['terms'])){
             $error['checkTerms'] = "terams and conditions is required";
           }
-        }
-         else {
-            $error['meassege'] = "Invalid form - some fields are empty";
-        }
+        };
+        
 
 
-        if(count($error) === 0){
+        if(sizeof($error)==0){
           $name = trim($_POST['name']) && filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
           $email = isset($_POST['email']) ? (trim($_POST['email']) && filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)) : '';
           $password = isset($_POST['password']) ? trim($_POST['password']) : '';
-          $name = isset($_POST['terms']);
+          $terms = isset($_POST['terms']);
             echo "Name: " . $name . "<br>";
             echo "Email: " . $email . "<br>";
             echo "Password: " . $password . "<br>";
             echo "Terms: " . $terms . "<br>"; 
         }
-}
 ?>
 <body>
     <section style="width: 100%;
@@ -76,8 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     justify-content: center; flex-direction: column;">
     <h3>FORM VALIDATION IN PHP</h3>
         <div style="background-color: aqua;
-        height: 400px;width: 400px;  
-        display:flex; align-items: center;
+        min-height:400px;width: 400px;  
+        display:flex;
         justify-content: center;">
             <form method="POST" action="<?php  echo $_SERVER['PHP_SELF'] ?>" >
                 <label for="Name">Name</label>
@@ -94,7 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                 <input name="terms" type="checkbox" id="terms"/><br>
                 <p style="color: red;"><?php echo isset($error['checkTerms']) ? $error['checkTerms']: ''; ?></p>
                 <input type="submit" name="submit" value="submit" > 
-                <p style="color: red;"><?php echo isset($error['meassege']) ? $error['meassege']: ''; ?></p>
             </form>
         </div>
     </section>
