@@ -1,5 +1,8 @@
 <?php
 class Person {
+
+    public $personName;
+    public $personAge;
     function __construct($name, $age) {
         $this->personName = $name;
         $this->personAge = $age;
@@ -10,6 +13,6 @@ class Person {
     }
 }
 
-$Arun = new Person('John', 22);
+$Arun = new Person('Arun', 22);
 $Arun->sayHai();
 ?>
